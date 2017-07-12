@@ -15,7 +15,7 @@ style: """
   -webkit-font-smoothing: antialiased
   color: #A3BE8C
   font: 10px Input
-  right: 155px
+  right: 185px
   top: 6px
   font-family: 'Fira Mono'
 """

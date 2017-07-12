@@ -37,10 +37,10 @@ style: """
     height: 25px
     text-align: center
     cursor: pointer
-    background-color: rgba(0, 0, 0, 0.2)
     display: table
   .active
-    background-color: rgba(0, 0, 0, 0)
+    background-color: #81A1C1
+    color: #3B4252
   .space-number
     display: table-cell
     vertical-align: middle
@@ -48,7 +48,7 @@ style: """
 
   -webkit-font-smoothing: antialiased
   text-align: left
-  color: #D8DEE9
+  color: #D0D0D0
   height: 25px
   overflow: hidden
   text-overflow: ellipsis

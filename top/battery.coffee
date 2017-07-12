@@ -8,7 +8,7 @@ render: (output) ->
   """
 
 update: (output) ->
-  $(".battery").text output
+  $(".battery").text "bat: #{output}"
 
 style: """
   -webkit-font-smoothing: antialiased

@@ -12,7 +12,7 @@ update: (output) ->
 
 style: """
   -webkit-font-smoothing: antialiased
-  color: #D8DEE9
+  color: #D0D0D0
   height: 16px
   left: 10px
   overflow: hidden
