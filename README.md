@@ -16,6 +16,8 @@ Bottom right: public ip, local ip
 
 # Installation
 
+[Install Fira Mono](https://github.com/mozilla/Fira), this is the bar's font.
+
 [Install Übersicht](http://tracesof.net/uebersicht/).
 
 Clone this repository to your Übersicht widgets:
