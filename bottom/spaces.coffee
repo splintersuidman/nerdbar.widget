@@ -1,3 +1,5 @@
+# It seems not (yet) possible to get a list of spaces
+# using chunkwm...
 command: "echo $(/usr/local/bin/kwmc query space list | wc -l):" +
          "$(/usr/local/bin/kwmc query space active id)"
 

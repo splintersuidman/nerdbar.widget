@@ -1,14 +1,23 @@
-command: "echo $(/usr/local/bin/kwmc query space active tag)"
+command: "echo $(/usr/local/bin/kwmc query space active name):" +
+         "$(/usr/local/bin/kwmc query space active tag)"
+# chunkwm update
+# command: "echo $(/usr/local/bin/chunkc tiling::query --desktop mode):" +
+#          "$(/usr/local/bin/chunkc tiling::query --window tag)"
 
 refreshFrequency: 1000 # ms
 
 render: (output) ->
   """
-  <div class="focused-window"></div>
+  <div>
+    <span class="tag"></span><span class="focused-window"></span>
+  </div>
   """
 
 update: (output) ->
-  $(".focused-window").text output
+  # Split output at first colon
+  output = output.split(/:(.+)/)
+  $(".tag").text "{#{output[0]}} "
+  $(".focused-window").text output[1]
 
 style: """
   -webkit-font-smoothing: antialiased
