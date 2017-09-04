@@ -1,5 +1,6 @@
-command: "echo $(/usr/local/bin/kwmc query space active name):" +
-         "$(/usr/local/bin/kwmc query space active tag)"
+# command: "echo $(/usr/local/bin/kwmc query space active name):" +
+#          "$(/usr/local/bin/kwmc query space active tag)"
+command: "echo $(/usr/local/bin/kwmc query space active tag)"
 # chunkwm update
 # command: "echo $(/usr/local/bin/chunkc tiling::query --desktop mode):" +
 #          "$(/usr/local/bin/chunkc tiling::query --window tag)"
@@ -15,9 +16,11 @@ render: (output) ->
 
 update: (output) ->
   # Split output at first colon
-  output = output.split(/:(.+)/)
-  $(".tag").text "{#{output[0]}} "
-  $(".focused-window").text output[1]
+  # output = output.split(/:(.+)/)
+  # $(".tag").text "{#{output[0]}} "
+  # $(".focused-window").text output[1]
+  # output = output.split(/ /)
+  $(".focused-window").text output.replace(/\[float\](\s?)/, "")
 
 style: """
   -webkit-font-smoothing: antialiased
