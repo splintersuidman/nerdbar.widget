@@ -1,18 +1,20 @@
 # nerdbar.widget
 
-My menu bar 'replacement', created using [Übersicht](http://tracesof.net/uebersicht/). Inspired by [Koekeishiya's nerdbar](https://github.com/koekeishiya/nerdbar.widget).
+My menu bar 'replacement', created using [Übersicht](http://tracesof.net/uebersicht/).
 
 ![Demo](/demo.png)
 
 # Elements
 
-Top left: focused window
+Focused window (using chunkwm or kwm [edit in `focused-window.coffee`])
 
-Top right: memory, cpu, battery, date, time
+Volume
 
-Bottom left: spaces, active space highlighted
+Wi-Fi connection
 
-Bottom right: public ip, local ip
+Battery
+
+Current time
 
 # Installation
 
