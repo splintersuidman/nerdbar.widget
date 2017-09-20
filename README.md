@@ -2,7 +2,7 @@
 
 My menu bar 'replacement', created using [Übersicht](http://tracesof.net/uebersicht/).
 
-![Demo](/demo.png)
+![Demo](/Demo.png)
 
 # Elements
 
