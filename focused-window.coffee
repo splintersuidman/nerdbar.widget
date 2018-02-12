@@ -9,44 +9,39 @@
   #
 
   commands =
-    kwm:     "/usr/local/bin/kwmc query space active tag"
-    chunkwm: "echo $(/usr/local/bin/chunkc tiling::query --window owner) - " +
-             "$(/usr/local/bin/chunkc tiling::query --window name)"
-    # focusedWindow: """
-    #   osascript -e 'global frontApp, frontAppName, windowTitle
-    #   set windowTitle to ""
-    #   tell application "System Events"
-    #       set frontApp to first application process whose frontmost is true
-    #       set frontAppName to name of frontApp
-    #       tell process frontAppName
-    #           tell (1st window whose value of attribute "AXMain" is true)
-    #               set windowTitle to value of attribute "AXTitle"
-    #           end tell
-    #       end tell
-    #   end tell
-    #   return frontAppName & " — " & windowTitle'
-    # """
+    owner: "/usr/local/bin/chunkc tiling::query --window owner"
+    name:  "/usr/local/bin/chunkc tiling::query --window name"
+
+  #
+  # ─── GLOBALS ────────────────────────────────────────────────────────────────
+  #
+
+  globals =
+    owner: ""
+    name:  ""
 
   #
   # ─── COLORS ─────────────────────────────────────────────────────────────────
   #
 
   colors =
-    black:   "#3B4252"
-    red:     "#BF616A"
-    green:   "#A3BE8C"
-    yellow:  "#EBCB8B"
-    blue:    "#81A1C1"
-    magenta: "#B48EAD"
-    cyan:    "#88C0D0"
-    white:   "#D8DEE9"
+    black:   "#1d2021"
+    grey:    "#a89984"
+    red:     "#fb4924"
+    green:   "#b8bb26"
+    yellow:  "#fabd2f"
+    blue:    "#458588"
+    magenta: "#b16286"
+    cyan:    "#689d6a"
+    white:   "#ebdbb2"
 
   #
   # ─── COMMAND ────────────────────────────────────────────────────────────────
   #
 
   command: "echo " +
-           "$(#{ commands.chunkwm })"
+           "$(#{ commands.owner }):::" +
+           "$(#{ commands.name })"
 
   #
   # ─── REFRESH ────────────────────────────────────────────────────────────────
@@ -62,8 +57,8 @@
     """
     <link rel="stylesheet" href="./font-awesome/font-awesome.min.css" />
 
-    <div class="window">
-      <i class="fa fa-window-maximize"></i>
+    <div class="info-item window">
+      <div class="icon"><i class="fa fa-window-maximize"></i></div>
       <span class="window-output"></span>
     </div>
     """
@@ -73,29 +68,38 @@
   #
 
   update: ( output ) ->
-    $( ".window-output" ).text( "#{ output }" )
+    output = output.split( /:::/g )
+
+    owner = output[ 0 ]
+    name  = output[ 1 ]
+
+    if owner.replace( /([ \t\n])/g, "" ).length > 0
+      globals.owner = owner
+
+    if name.replace( /([ \t\n])/g, "" ).length > 0
+      globals.name = name
+
+    $( ".window-output" ).text( "#{ globals.owner } - #{ globals.name }" )
 
   #
   # ─── STYLE ──────────────────────────────────────────────────────────────────
   #
 
   style: """
-    .window
-      left: 150px
-      color: #{ colors.black }
-      display: inline-block
-      max-width: calc(55% - 165px)
-      text-overflow: ellipsis
-      overflow: hidden
-      white-space: nowrap
+    .window .icon
+      background-color: #{ colors.blue }
+    .info-item
+      display: flex
+      padding: 0px 5px 0 0
+      background-color: #{ colors.white }
+      margin-left: 15px
+      .icon
+        padding: 1px 5px
+        margin-right: 5px
 
-    width: 100%
-    text-overflow: ellipsis
-    overflow: hidden
-    white-space: nowrap
-    top: 15px
-    left: 165px
-    font-family: 'Iosevka'
+    top: 3.5px
+    left: 0px
+    font-family: 'Fira Code'
     font-size: 13px
     font-smoothing: antialiasing
     z-index: 0

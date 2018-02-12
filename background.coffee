@@ -22,13 +22,13 @@
   #
 
   style: """
-    top: 10px
-    left: 150px
-    right: 150px
+    top: 0px
+    left: 0px
+    right: 0px
     height: 25px
     // background-color: #000
-    background-color: #3B4252
-    opacity: 0.125
+    background-color: #1d2021
+    opacity: 1.0
     z-index: -1
   """
 
