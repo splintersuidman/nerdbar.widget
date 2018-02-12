@@ -5,6 +5,12 @@
 #
 
   #
+  # ─── CONSTANTS ──────────────────────────────────────────────────────────────
+  #
+
+  MAX_LENGTH = 40
+
+  #
   # ─── ALL COMMANDS ───────────────────────────────────────────────────────────
   #
 
@@ -77,7 +83,10 @@
       globals.owner = owner
 
     if name.replace( /([ \t\n])/g, "" ).length > 0
-      globals.name = name
+      if name.length > MAX_LENGTH
+        globals.name = name.substr(0, 40) + "..."
+      else
+        globals.name = name
 
     $( ".window-output" ).text( "#{ globals.owner } - #{ globals.name }" )
 
