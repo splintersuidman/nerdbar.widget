@@ -13,12 +13,9 @@ My menu bar 'replacement', created using [Übersicht](http://tracesof.net/uebers
 
 # Installation
 
-[Install Fira Code](https://github.com/tonsky/FiraCode), this is the bar's font.
-
-[Install Übersicht](http://tracesof.net/uebersicht/).
-
-Clone this repository to your Übersicht widgets:
-
-```bash
-git clone https://github.com/splintah/nerdbar.widget ~/Library/Application\ Support/Übersicht/widgets
-```
+- [Install Fira Code](https://github.com/tonsky/FiraCode), this is the bar's font.
+- [Install Übersicht](http://tracesof.net/uebersicht/).
+- Clone this repository to your Übersicht widgets:
+    ```bash
+    git clone https://github.com/splintah/nerdbar.widget ~/Library/Application\ Support/Übersicht/widgets
+    ```
